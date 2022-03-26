@@ -3,10 +3,8 @@ import clsx from 'clsx';
 import NumberFormat from 'react-number-format';
 import {WhiteBlock} from '../../WhiteBlock';
 import {Button} from '../../Buttons/Button';
-
-
 import styles from './EnterPhoneStep.module.scss';
-import { StepInfo } from '../../StepInfo';
+import {StepInfo} from '../../StepInfo';
 
 // import { MainContext } from '../../../pages';
 

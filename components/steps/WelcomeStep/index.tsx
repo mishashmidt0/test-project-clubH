@@ -19,7 +19,7 @@ export const WelcomeStep: React.FC = () => {
                 youches, we’re adding people gradually to make sure nothing breaks :)
             </p>
             <div>
-                <Button onClick={() => {
+                <Button color={'green'} onClick={() => {
                     'onNextStep'
                 }}>
                     Get your username
