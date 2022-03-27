@@ -1,6 +1,7 @@
 import React from "react";
 import {RoomCardInterface, ListenerInterface} from "./RoomCardTypes";
 import styles from './RoomCard.module.sass'
+import {v1} from "uuid";
 
 const RoomCard = (props: RoomCardInterface) => {
     const {title, avatars, listeners,} = props
@@ -17,7 +18,7 @@ const RoomCard = (props: RoomCardInterface) => {
 
                 <div className={styles.conversation__listeners__wrapper}>
                     {listeners.map((listener: ListenerInterface) => {
-                        return <p key={listener.id} className={styles.listeners__paragraph}>{listener.name}</p>
+                        return <p key={v1()} className={styles.listeners__paragraph}>{listener.name}</p>
                     })}
                 </div>
             </div>

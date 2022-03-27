@@ -1,11 +1,12 @@
 export interface ListenerInterface {
     name: string
-    id: string
 }
 
 export interface RoomCardInterface {
-    id: number
+    id: string
     title: string,
     avatars: string[]
-    listeners: ListenerInterface[]
+    listeners: ListenerInterface[],
 }
+
+export type RoomCardType = RoomCardInterface[] | []

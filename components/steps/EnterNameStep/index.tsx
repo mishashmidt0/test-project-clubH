@@ -2,24 +2,24 @@ import clsx from 'clsx';
 import {WhiteBlock} from '../../WhiteBlock';
 import {Button} from '../../Buttons/Button';
 import {StepInfo} from '../../StepInfo';
-
 import styles from './EnterNameStep.module.scss';
 import React from 'react';
-// import { MainContext } from '../../../pages';
+import {MainContext} from "../../../pages";
+
 
 export const EnterNameStep = () => {
+    const [isDisable, setIsDisable] = React.useState<boolean>(true);
     const [inputValue, setInputValue] = React.useState<string>('');
-    // const { onNextStep } = React.useContext(MainContext);
-
-    const nextDisabled = !inputValue;
+    const {onNextStep} = React.useContext(MainContext);
 
     const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setInputValue(event.target.value);
+        event.target.value.trim() ? setIsDisable(false) : setIsDisable(true);
+        setInputValue(event.target.value.trim());
     };
 
     const onClickNextStep = () => {
-        'onNextStep';
-    };
+        onNextStep()
+    }
 
     return (
         <div className={styles.block}>
@@ -37,7 +37,7 @@ export const EnterNameStep = () => {
                         placeholder="Enter fullname"
                     />
                 </div>
-                <Button disabled={nextDisabled} onClick={onClickNextStep} color={'green'}>
+                <Button disabled={isDisable} onClick={onClickNextStep} color={'green'}>
                     Next
                     <img className="d-ib ml-10" src="/static/arrow.svg"/>
                 </Button>

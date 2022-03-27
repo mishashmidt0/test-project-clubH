@@ -1,0 +1,135 @@
+[
+  {
+    "id": "612a7ddc58321dd75683f2b5",
+    "title": "Diginetic",
+    "avatars": [
+      "https://source.unsplash.com/random/120x120/?1",
+      "https://source.unsplash.com/random/120x120/?2"
+    ],
+    "listeners": [
+      {
+        "name": "Matilda Paul"
+      },
+      {
+        "name": "Parrish Coffey"
+      },
+      {
+        "name": "Rodriguez Herman"
+      }
+    ]
+  },
+  {
+    "id": "612a7ddc3bd0136005da1fe7",
+    "title": "Nutralab",
+    "avatars": [
+      "https://source.unsplash.com/random/120x120/?31",
+      "https://source.unsplash.com/random/120x120/?22"
+    ],
+    "listeners": [
+      {
+        "name": "Palmer Burnett"
+      },
+      {
+        "name": "Sasha Parsons"
+      },
+      {
+        "name": "Clements Waller"
+      }
+    ]
+  },
+  {
+    "id": "612a7ddc91c795327c7771df",
+    "title": "Zillanet",
+    "avatars": [
+      "https://source.unsplash.com/random/120x120/?11",
+      "https://source.unsplash.com/random/120x120/?21"
+    ],
+    "listeners": [
+      {
+        "name": "Eula Mckay"
+      },
+      {
+        "name": "Maryanne Olson"
+      },
+      {
+        "name": "Obrien Buckley"
+      }
+    ]
+  },
+  {
+    "id": "612a7ddc2efed203eec59d60",
+    "title": "Codax",
+    "avatars": [
+      "https://source.unsplash.com/random/120x120/?11",
+      "https://source.unsplash.com/random/120x120/?9"
+    ],
+    "listeners": [
+      {
+        "name": "Zamora Morales"
+      },
+      {
+        "name": "Cecile Roach"
+      },
+      {
+        "name": "Casey Gibbs"
+      }
+    ]
+  },
+  {
+    "id": "612a7ddc42056e4dd34aad47",
+    "title": "Bristo",
+    "avatars": [
+      "https://source.unsplash.com/random/120x120/?7",
+      "https://source.unsplash.com/random/120x120/?8"
+    ],
+    "listeners": [
+      {
+        "name": "Henry Hernandez"
+      },
+      {
+        "name": "Erin Hewitt"
+      },
+      {
+        "name": "Sondra Terrell"
+      }
+    ]
+  },
+  {
+    "id": "612a7ddc90d7f736684dc482",
+    "title": "Ultrasure",
+    "avatars": [
+      "https://source.unsplash.com/random/120x120/?6",
+      "https://source.unsplash.com/random/120x120/?5"
+    ],
+    "listeners": [
+      {
+        "name": "Caroline Spencer"
+      },
+      {
+        "name": "Deidre Pitts"
+      },
+      {
+        "name": "Chandler Vincent"
+      }
+    ]
+  },
+  {
+    "id": "612a7ddc06b66e1d4f3c2d9a",
+    "title": "Moreganic",
+    "avatars": [
+      "https://source.unsplash.com/random/120x120/?4",
+      "https://source.unsplash.com/random/120x120/?3"
+    ],
+    "listeners": [
+      {
+        "name": "Fisher Hardin"
+      },
+      {
+        "name": "Mcclure Langley"
+      },
+      {
+        "name": "Burch Glenn"
+      }
+    ]
+  }
+]

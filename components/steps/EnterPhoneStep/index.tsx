@@ -6,7 +6,7 @@ import {Button} from '../../Buttons/Button';
 import styles from './EnterPhoneStep.module.scss';
 import {StepInfo} from '../../StepInfo';
 
-// import { MainContext } from '../../../pages';
+import {MainContext} from '../../../pages';
 
 type InputValueState = {
     formattedValue: string;
@@ -15,7 +15,7 @@ type InputValueState = {
 
 export const EnterPhoneStep = () => {
 
-    // const {onNextStep} = React.useContext(MainContext);
+    const {onNextStep} = React.useContext(MainContext);
 
     const [values, setValues] = React.useState<InputValueState>({} as InputValueState);
 
@@ -40,9 +40,7 @@ export const EnterPhoneStep = () => {
                         onValueChange={({formattedValue, value}) => setValues({formattedValue, value})}
                     />
                 </div>
-                <Button disabled={nextDisabled} onClick={() => {
-                    'onNextStep'
-                }} color={'green'}>
+                <Button disabled={nextDisabled} onClick={onNextStep} color={'green'}>
                     Next
                     <img className="d-ib ml-10" src="/static/arrow.svg"/>
                 </Button>

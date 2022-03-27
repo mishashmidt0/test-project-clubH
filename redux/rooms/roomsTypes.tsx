@@ -1,6 +1,6 @@
 
 const actionTypes = {
-  SET_ROOMS: 'USER:SET_ROOMS'
+    SET_ROOMS: 'USER:SET_ROOMS'
 }
 
 export default actionTypes

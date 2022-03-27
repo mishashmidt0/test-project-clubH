@@ -32,8 +32,8 @@ export const EnterCodeStep = () => {
     const onSubmitHandler = async () => {
         try {
             setIsLoading(true)
-            await Axios.get('/todos')
-            // router.push('/rooms');
+            await Axios.get('/RoomsCard.json')
+            router.push('/rooms');
         } catch (error) {
             setIsLoading(false)
             alert('Ошибка при активации')
