@@ -33,7 +33,7 @@ export const EnterCodeStep = () => {
         try {
             setIsLoading(true)
             await Axios.get('/todos')
-            router.push('/rooms');
+            // router.push('/rooms');
         } catch (error) {
             setIsLoading(false)
             alert('Ошибка при активации')

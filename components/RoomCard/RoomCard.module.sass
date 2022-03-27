@@ -1,0 +1,48 @@
+.conversation
+  display: flex
+  flex-direction: column
+  background-color: #fff
+  padding: 24px 16px
+  border-radius: 12px
+  max-width: 420px
+  cursor: pointer
+
+  &__wrapper
+    display: flex
+
+  &__title
+    font-size: 24px
+    margin: 0 0 12px 0
+
+  &__avatar__wrapper
+    display: flex
+    position: relative
+    margin-right: 32px
+
+  &__listeners__wrapper
+    display: flex
+    flex-direction: column
+
+  &__avatar__first
+    min-width: 96px
+    max-width: 96px
+    min-height: 96px
+    max-height: 96px
+    object-fit: cover
+    border-radius: 30px
+
+  &__avatar__second
+    min-width: 96px
+    max-width: 96px
+    min-height: 96px
+    max-height: 96px
+    object-fit: cover
+    border-radius: 30px
+    margin-top: 45px
+    margin-left: -45px
+
+.listeners__paragraph
+  margin: 0 0 8px 0
+
+.listeners__paragraph:last-child
+  margin: 0 0 0 0

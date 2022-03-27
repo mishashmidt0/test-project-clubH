@@ -27,7 +27,7 @@ type MainContaxtPropsType = {
 export const MainContext = React.createContext<MainContaxtPropsType>({} as MainContaxtPropsType);
 
 const Home: NextPage = () => {
-    const [step, setStep] = React.useState<number>(5);
+    const [step, setStep] = React.useState<number>(0);
     const Step = stepsComponents[step]
     const onNextStep = () => {
         setStep((prev) => prev + 1)
