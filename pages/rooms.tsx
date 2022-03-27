@@ -21,7 +21,7 @@ export default function RoomsPage() {
             setRooms(data)
         })();
 
-    })
+    }, [])
     // const {rooms} = useSelector((state: AppStateType) => state.roomsReducer)
 
 
