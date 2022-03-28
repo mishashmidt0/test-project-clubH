@@ -6,11 +6,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "server": "ts-node-dev --respawn --transpile-only server/index.ts"
   },
   "dependencies": {
     "axios": "^0.26.1",
     "clsx": "^1.1.1",
+    "config": "^3.3.7",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
     "next": "12.1.1",
     "next-redux-wrapper": "^7.0.5",
     "node-sass": "^7.0.1",
@@ -23,6 +27,8 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@types/config": "^0.0.41",
+    "@types/express": "^4.17.13",
     "@types/node": "17.0.23",
     "@types/react": "17.0.43",
     "@types/react-dom": "17.0.14",
