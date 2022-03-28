@@ -11,17 +11,21 @@ import {AppStateType, wrapper} from '../redux/store';
 import {v1} from "uuid";
 import {Button} from "../components/Buttons/Button";
 
-export default function RoomsPage() {
+type RoomsPageType = {
+    rooms: RoomCardType
+}
 
-    const [rooms, setRooms] = React.useState<RoomCardType>([])
+export default function RoomsPage({rooms}: RoomsPageType) {
 
-    React.useEffect(() => {
-        (async () => {
-            const {data} = await Axios.get('/RoomsCard.json');
-            setRooms(data)
-        })();
+    // const [rooms, setRooms] = React.useState<RoomCardType>([])
 
-    }, [])
+    // React.useEffect(() => {
+    //     (async () => {
+    //         const {data} = await Axios.get('/RoomsCard.json');
+    //         setRooms(data)
+    //     })();
+    //
+    // }, [])
     // const {rooms} = useSelector((state: AppStateType) => state.roomsReducer)
 
 
@@ -58,9 +62,25 @@ export default function RoomsPage() {
 }
 
 
-// // @ts-ignore
-// export const getServerSideProps = wrapper.getServerSideProps((store) => async () => {
-//     const {data} = await Axios.get('/RoomsCard.json')
-//     store.dispatch(roomsActions.setUser(data))
-// });
+export const getServerSideProps = wrapper.getServerSideProps((store) => async () => {
+    try {
+
+        const {data} = await Axios.get('/RoomsCard.json')
+        store.dispatch(roomsActions.setUser(data))
+        return {
+            props: {
+                rooms: data
+            }
+        }
+    } catch (error) {
+        console.log('ERROR!')
+        return {
+            props: {
+                rooms: []
+            }
+        }
+    }
+
+
+});
 
