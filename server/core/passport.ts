@@ -2,7 +2,7 @@ import passport from 'passport';
 import GitHubStrategy from 'passport-github'
 
 
-passport.use('github', new GitHubStrategy({
+passport.use('github', <passport.Strategy>new GitHubStrategy({
         clientID: process.env.GITHUB_CLIENT_ID as string,
         clientSecret: process.env.GITHUB_CLIENT_SECRET as string,
         callbackURL: "http://localhost:5000/auth/github/callback"
@@ -14,7 +14,8 @@ passport.use('github', new GitHubStrategy({
             fullname: profile.displayName,
             avatarUrl: profile.photos?.[0].value,
         }
-        cb();
+
+        cb(user);
     }
 ));
 export {passport}

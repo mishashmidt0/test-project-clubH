@@ -5,6 +5,8 @@ dotenv.config({
     path: 'server/.env'
 });
 
+import './core/dataBase'
+
 import {passport} from './core/passport'
 
 const app = express()
