@@ -1,11 +1,12 @@
 import {WhiteBlock} from '../../WhiteBlock';
 import {Button} from '../../Buttons/Button';
 import styles from './WelcomeStep.module.scss';
-import React from 'react';
+import React, {useState} from 'react';
 import {MainContext} from "../../../pages";
 
 export const WelcomeStep: React.FC = () => {
         const {onNextStep} = React.useContext(MainContext);
+
         return (
             <WhiteBlock className={styles.block}>
                 <h3 className={styles.title}>

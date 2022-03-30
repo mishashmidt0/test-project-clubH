@@ -27,7 +27,7 @@ export default function RoomsPage({rooms}: RoomsPageType) {
     //
     // }, [])
     // const {rooms} = useSelector((state: AppStateType) => state.roomsReducer)
-
+    console.log("hello DOCKER ! ")
 
     return (
         <>
