@@ -10,6 +10,26 @@ import {MainContext} from '../../../pages';
 export const GithubStep: React.FC = () => {
     const {onNextStep} = React.useContext(MainContext);
 
+    const onClickAuth = () => {
+        // POPUP
+        const win = window.open('http://localhost:5000/auth/github', 'Auth', 'width=500, height=500,status=yes,toolbar=no,menubar=no,location=no')
+
+        const timer = setInterval(() => {
+            // @ts-ignore
+            if (win.closed) {
+                clearInterval(timer);
+                onNextStep();
+            }
+            console.log()
+        }, 100)
+    }
+
+    React.useEffect(() => {
+        window.addEventListener('message', data => {
+            console.log(data)
+        })
+    }, [])
+
     return (
         <div className={styles.block}>
             <StepInfo icon="/static/connect.png" title="Do you want import info from Twitter?"/>
@@ -30,11 +50,11 @@ export const GithubStep: React.FC = () => {
                     </svg>
                 </div>
                 <h2 className="mb-40">Archakov Dennis</h2>
-                <Button color={'gray'} onClick={onNextStep}>
+                <Button color={'gray'} onClick={onClickAuth}>
                     <div className={"d-flex align-items-center"}>
                         <img src="/static/github_logo.svg" alt="Twitter logo" className={styles.twitterLogo}/>
                         Import from Github
-                        <img className="d-ib ml-10" src="/static/arrow_black.svg" />
+                        <img className="d-ib ml-10" src="/static/arrow_black.svg"/>
                     </div>
                 </Button>
                 <div className="link mt-20 cup d-ib">Enter my info manually</div>

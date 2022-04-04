@@ -5,6 +5,7 @@ import React, {useState} from 'react';
 import {MainContext} from "../../../pages";
 
 export const WelcomeStep: React.FC = () => {
+
         const {onNextStep} = React.useContext(MainContext);
 
         return (
