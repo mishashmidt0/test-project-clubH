@@ -6,6 +6,7 @@ import {StepInfo} from '../../StepInfo';
 import {Avatar} from '../../Avatar';
 import styles from './ChooseAvatarStep.module.scss';
 import {MainContext} from '../../../pages';
+import {Axios} from "../../../core/axios";
 
 export const ChooseAvatarStep: React.FC = () => {
 
@@ -14,13 +15,26 @@ export const ChooseAvatarStep: React.FC = () => {
     const [avatarUrl, setAvatarUrl] = React.useState<string>(userData.avatarURL);
     const inputFileRef = React.useRef<HTMLInputElement>(null);
 
-    const handleChangeImage = (event: Event): void => {
+    const upLoadFile = async (file: File) => {
+        const formData = new FormData()
+        formData.append('photo', file)
 
-        const file = (event.target as any).files[0];
+        const {data} = await Axios.post('/upload', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            },
+        })
+    }
+
+    const handleChangeImage = async (event: Event) => {
+        const target = (event.target as HTMLInputElement)
+        const file = (event.target as any).files[0]
         if (file) {
             const imageUrl = URL.createObjectURL(file);
             setAvatarUrl(imageUrl);
             setFieldValue('avatarURL', avatarUrl)
+            const data = await upLoadFile(file)
+            target.value = '';
         }
     };
 

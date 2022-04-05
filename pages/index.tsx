@@ -45,7 +45,7 @@ export const MainContext = React.createContext<MainContaxtPropsType>({} as MainC
 const Home: NextPage = () => {
 
     const [userData, setUserData] = React.useState<User>(userInitialState)
-    const [step, setStep] = React.useState<number>(0);
+    const [step, setStep] = React.useState<number>(3);
     const Step = stepsComponents[step]
     const onNextStep = () => {
         setStep((prev) => prev + 1)

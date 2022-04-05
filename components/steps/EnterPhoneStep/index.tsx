@@ -21,6 +21,8 @@ export const EnterPhoneStep = () => {
 
     const nextDisabled = !values.formattedValue || values.formattedValue.includes('_');
 
+
+
     return (
         <div className={styles.block}>
             <StepInfo
