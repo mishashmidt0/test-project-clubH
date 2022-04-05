@@ -9,11 +9,9 @@ import {MainContext} from '../../../pages';
 
 export const ChooseAvatarStep: React.FC = () => {
 
-    const {onNextStep} = React.useContext(MainContext);
-
-    const [avatarUrl, setAvatarUrl] = React.useState<string>(
-        'https://sun2-3.userapi.com/s/v1/if1/CAR1Aao3yIica7xq77xIIMMTn29CME-cE5JSJBc8OTNVt29JQjnhR0ZsX_9IO-AzgwVbfgB6.jpg?size=200x0&quality=96&crop=138,44,1048,1048&ava=1',
-    );
+    const {onNextStep, userData, setFieldValue} = React.useContext(MainContext);
+    console.log(userData)
+    const [avatarUrl, setAvatarUrl] = React.useState<string>(userData.avatarURL);
     const inputFileRef = React.useRef<HTMLInputElement>(null);
 
     const handleChangeImage = (event: Event): void => {
@@ -22,6 +20,7 @@ export const ChooseAvatarStep: React.FC = () => {
         if (file) {
             const imageUrl = URL.createObjectURL(file);
             setAvatarUrl(imageUrl);
+            setFieldValue('avatarURL', avatarUrl)
         }
     };
 
@@ -30,6 +29,7 @@ export const ChooseAvatarStep: React.FC = () => {
             inputFileRef.current.addEventListener<any>('change', handleChangeImage);
         }
     }, []);
+
 
     return (
         <div className={styles.block}>

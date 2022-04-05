@@ -3,32 +3,30 @@ import {WhiteBlock} from '../../WhiteBlock';
 import {Button} from '../../Buttons/Button';
 import {StepInfo} from '../../StepInfo';
 
-import styles from './TwitterStep.module.scss';
+import styles from './GitHubStep.module.scss';
 import React from 'react';
 import {MainContext} from '../../../pages';
 
-export const GithubStep: React.FC = () => {
-    const {onNextStep} = React.useContext(MainContext);
+export const GithubStep = () => {
+    const {onNextStep, setUserData} = React.useContext(MainContext);
 
-    const onClickAuth = () => {
-        // POPUP
+    // POPUP
+    const registerToGotHub = () => {
         const win = window.open('http://localhost:5000/auth/github', 'Auth', 'width=500, height=500,status=yes,toolbar=no,menubar=no,location=no')
-
-        const timer = setInterval(() => {
-            // @ts-ignore
-            if (win.closed) {
-                clearInterval(timer);
-                onNextStep();
-            }
-            console.log()
-        }, 100)
     }
 
     React.useEffect(() => {
-        window.addEventListener('message', data => {
-            console.log(data)
+
+        window.addEventListener('message', ({data}) => {
+            const user: string = data;
+            if (typeof user == 'string' && user.includes('username')) {
+                const json = JSON.parse(user)
+                setUserData(json)
+                onNextStep()
+            }
         })
-    }, [])
+    }, []);
+
 
     return (
         <div className={styles.block}>
@@ -50,7 +48,7 @@ export const GithubStep: React.FC = () => {
                     </svg>
                 </div>
                 <h2 className="mb-40">Archakov Dennis</h2>
-                <Button color={'gray'} onClick={onClickAuth}>
+                <Button color={'gray'} onClick={registerToGotHub}>
                     <div className={"d-flex align-items-center"}>
                         <img src="/static/github_logo.svg" alt="Twitter logo" className={styles.twitterLogo}/>
                         Import from Github
@@ -62,3 +60,4 @@ export const GithubStep: React.FC = () => {
         </div>
     );
 };
+

@@ -8,9 +8,10 @@ import {MainContext} from "../../../pages";
 
 
 export const EnterNameStep = () => {
-    const [isDisable, setIsDisable] = React.useState<boolean>(true);
-    const [inputValue, setInputValue] = React.useState<string>('');
-    const {onNextStep} = React.useContext(MainContext);
+    const {onNextStep, userData, setFieldValue} = React.useContext(MainContext);
+    const [isDisable, setIsDisable] = React.useState<boolean>(false);
+    const [inputValue, setInputValue] = React.useState<string>(userData.username);
+
 
     const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
         event.target.value.trim() ? setIsDisable(false) : setIsDisable(true);
@@ -18,6 +19,7 @@ export const EnterNameStep = () => {
     };
 
     const onClickNextStep = () => {
+        setFieldValue('username', inputValue)
         onNextStep()
     }
 
