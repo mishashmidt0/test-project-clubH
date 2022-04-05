@@ -39,23 +39,17 @@ app.get('', (req, res) => {
 })
 
 app.post('/upload', upload.single('photo'), (req, res) => {
-    res.json(req.file)
-});
+    const filePath = (req.file as any).path
 
-
-app.post('/upload', upload.single('photo'), (req, res) => {
-    const filePath = (req.file as Express.Multer.File).path
     sharp(filePath)
         .resize(150, 150)
-        .toFormat('jpeg')
-        .toFile(filePath.replace('.png', '.jpeg'), (err) => {
+        .toFormat("jpeg", {mozjpeg: true})
+        .toFile(filePath.replace(/\.\w*/, '.jpeg'), (err) => {
             if (err) {
                 throw err
             }
             res.json(req.file)
         })
-
-
 })
 
 app.get('/auth/github', passport.authenticate('github'));
