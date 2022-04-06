@@ -1,7 +1,9 @@
 import passport from 'passport';
 import GitHubStrategy from 'passport-github'
+import {Strategy as JwtStrategy, ExtractJwt} from 'passport-jwt'
 
 const {user, Payment} = require('../../models');
+
 type UserType = {
     id: number,
     fullname: string,

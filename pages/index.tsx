@@ -21,12 +21,13 @@ const stepsComponents: stepsComponentsType = {
 
 type MainContaxtPropsType = {
     onNextStep: () => void
-    setUserData: React.Dispatch<React.SetStateAction<User>>
-    setFieldValue: (field: keyof User, value: string) => void
-    userData: User
+    setUserData: React.Dispatch<React.SetStateAction<UserDate>>
+    setFieldValue: (field: keyof UserDate, value: string) => void
+    userData: UserDate
     step: number
 }
-type User = {
+export type UserDate = {
+    id: number,
     fullname: string,
     avatarURL: string,
     isActive: number,
@@ -34,6 +35,7 @@ type User = {
     phone: string,
 }
 const userInitialState = {
+    id: 1,
     fullname: '',
     avatarURL: '',
     isActive: 0,
@@ -44,8 +46,8 @@ const userInitialState = {
 export const MainContext = React.createContext<MainContaxtPropsType>({} as MainContaxtPropsType);
 const Home: NextPage = () => {
 
-    const [userData, setUserData] = React.useState<User>(userInitialState)
-    const [step, setStep] = React.useState<number>(3);
+    const [userData, setUserData] = React.useState<UserDate>(userInitialState)
+    const [step, setStep] = React.useState<number>(4);
     const Step = stepsComponents[step]
     const onNextStep = () => {
         setStep((prev) => prev + 1)

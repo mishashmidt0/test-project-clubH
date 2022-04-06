@@ -15,7 +15,7 @@ export const ChooseAvatarStep: React.FC = () => {
     const [avatarUrl, setAvatarUrl] = React.useState<string>(userData.avatarURL);
     const inputFileRef = React.useRef<HTMLInputElement>(null);
 
-    const upLoadFile = async (file: File) => {
+    const upLoadFile = async (file: File): Promise<{ url: string }> => {
         const formData = new FormData()
         formData.append('photo', file)
 
@@ -24,6 +24,15 @@ export const ChooseAvatarStep: React.FC = () => {
                 'Content-Type': 'multipart/form-data'
             },
         })
+
+        //or
+        // const {data} = await Axios({
+        //     method: 'POST',
+        //     url: '/upload',
+        //     data: formData,
+        //     headers: {'Content-Type': 'multipart/form-data'}
+        // })
+        return data
     }
 
     const handleChangeImage = async (event: Event) => {
@@ -32,9 +41,10 @@ export const ChooseAvatarStep: React.FC = () => {
         if (file) {
             const imageUrl = URL.createObjectURL(file);
             setAvatarUrl(imageUrl);
-            setFieldValue('avatarURL', avatarUrl)
             const data = await upLoadFile(file)
             target.value = '';
+            setAvatarUrl(data.url)
+            setFieldValue('avatarURL', data.url)
         }
     };
 
@@ -49,7 +59,7 @@ export const ChooseAvatarStep: React.FC = () => {
         <div className={styles.block}>
             <StepInfo
                 icon="/static/celebration.png"
-                title="Okay, Archakov Dennis!"
+                title={`Okay, ${userData.username}!`}
                 description="How’s this photo?"
             />
             <WhiteBlock className={clsx('m-auto mt-40', styles.whiteBlock)}>

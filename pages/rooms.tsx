@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link'
-import Axios from '../core/axios'
+import {Axios} from '../core/axios'
 import {Header} from '../components/Header';
 import RoomCard from "../components/RoomCard";
 import {RoomCardInterface, RoomCardType} from "../components/RoomCard/RoomCardTypes";
@@ -18,7 +18,7 @@ type RoomsPageType = {
 export default function RoomsPage({rooms}: RoomsPageType) {
 
     // const [rooms, setRooms] = React.useState<RoomCardType>([])
-
+    //
     // React.useEffect(() => {
     //     (async () => {
     //         const {data} = await Axios.get('/RoomsCard.json');
@@ -27,7 +27,7 @@ export default function RoomsPage({rooms}: RoomsPageType) {
     //
     // }, [])
     // const {rooms} = useSelector((state: AppStateType) => state.roomsReducer)
-    console.log("hello DOCKER ! ")
+    // console.log("hello DOCKER ! ")
 
     return (
         <>
